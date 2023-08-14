@@ -7,7 +7,7 @@ param(
 ## Crear una nueva clave -- RemovableStorageDevices DWORD 32-bit
 # HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows
 
-# Comprobamos si existe la clave
+## Comprobamos si existe la clave
 # $ruta_clave = "HKLM:\SOFTWARE\Policies\Microsoft\Windows\RemovableStorageDevices"
 # $clave = "RemovableStorageDevices"
 
