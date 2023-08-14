@@ -1,5 +1,5 @@
 param(
-    [Parameter(Mandatory=$True, 
+    [Parameter(Mandatory=$true, 
     HelpMessage="Ruta de la clave de registro a buscar - EX: 'HKLM:\SOFTWARE\Policies\Microsoft\Windows\RemovableStorageDevices'")]
     [string]$Key_path
 )
@@ -12,7 +12,6 @@ param(
 # $clave = "RemovableStorageDevices"
 
 try {
-    
     if ((Get-ChildItem -Path $Key_path -ErrorAction SilentlyContinue) -eq "") {
         # Clave existe - seteamos a 1
         Write-Host "Clave existe - seteamos la clave a 1"
@@ -24,10 +23,8 @@ try {
         Exit 0
         New-ItemProperty -Path $Key_path -Name "Deny_All" -Value "1" -PropertyType DWORD -Verbose -ErrorAction Stop
     }
-
 } catch {
         #Creamos clave
         New-Item -Path $Key_path -Verbose
         New-ItemProperty -Path $Key_path -Name "Deny_All" -Value "1" -PropertyType DWORD -Verbose
-
 } 
